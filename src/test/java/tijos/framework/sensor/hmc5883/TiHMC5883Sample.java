@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import tijos.framework.devicecenter.TiI2CMaster;
 import tijos.framework.sensor.hmc5883.TiHMC5883;
-import tijos.util.Delay;
+import tijos.framework.util.Delay;
 
 public class TiHMC5883Sample {
 

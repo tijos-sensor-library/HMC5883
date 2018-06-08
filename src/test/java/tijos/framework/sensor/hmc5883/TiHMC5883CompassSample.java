@@ -3,7 +3,7 @@ package tijos.framework.sensor.hmc5883;
 import java.io.IOException;
 
 import tijos.framework.devicecenter.TiI2CMaster;
-import tijos.util.Delay;
+import tijos.framework.util.Delay;
 
 public class TiHMC5883CompassSample {
 

@@ -4,9 +4,9 @@ package tijos.framework.sensor.hmc5883;
 import java.io.IOException;
 
 import tijos.framework.devicecenter.TiI2CMaster;
-import tijos.util.BigBitConverter;
-import tijos.util.Delay;
-import tijos.util.LittleBitConverter;
+import tijos.framework.util.BigBitConverter;
+import tijos.framework.util.Delay;
+import tijos.framework.util.LittleBitConverter;
 
 /*
  *  Honeywell HMC5883L digital compass.
@@ -48,7 +48,7 @@ class Vector {
  */
 public class TiHMC5883 {
 
-	public static final int HMC5883_ADDRESS = 0x1E << 1;
+	public static final int HMC5883_ADDRESS = 0x1E;
 
 	public enum SAMPLES {
 		SAMPLES_1, SAMPLES_2, SAMPLES_4, SAMPLES_8
@@ -190,7 +190,7 @@ public class TiHMC5883 {
 	public RANGE getRange() throws IOException {
 		this.i2cmObj.read(this.i2cSlaveAddr, TiHMC5883Register.HMC5883L_REG_CONFIG_B, data, 0, 1);
 
-		return RANGE.values()[data[0]];
+		return RANGE.values()[data[0] >> 5];
 	}
 
 	public void setMeasurementMode(MODE mode) throws IOException {
